@@ -28,7 +28,9 @@ $end
 4) Run **get_hrs_orca.py** script on your ORCA output with the charges:
 
 ```python3 /path/to/orca2cm5-1.1/get_hrs_orca.py your_ORCA_job.out```
+
 Or:
+
 Run **get_hrs_priroda.py** script on your Priroda output with the charges:
 
 ```python3 /path/to/orca2cm5-1.1/get_hrs_priroda.py your_Priroda_job.out```
@@ -45,7 +47,9 @@ Run **get_hrs_priroda.py** script on your Priroda output with the charges:
 6) Run **hrs_to_m51.py** script on your_ORCA_job.HRS or your_Priroda_job.HRS:
 
 ```python3 /path/to/orca2cm5-1.1/hrs_to_m51.py your_ORCA_job.HRS```
+
 or:
+
 ```python3 /path/to/orca2cm5-1.1/hrs_to_m51.py your_Priroda_job.HRS```
 
 7) The result is the file which contains the Cartesian coordinates and the CM5 charges in the last column, see your_ORCA_job.M51:
