@@ -1,14 +1,14 @@
 # orca2cm5
-Conversion of the Hirshfeld charges in ORCA to CM5
+Conversion of the Hirshfeld charges in ORCA/Priroda to CM5
 ## How to use
-1) Download and unpack the archive orca2cm5-1.0.zip on your Linux computer
+1) Download and unpack the archive orca2cm5-1.1.zip on your Linux computer
 
-a) click on "Source code (zip)" here https://github.com/QuantumChemistryGroup/orca2cm5/releases/tag/v1.0
+a) click on "Source code (zip)" here https://github.com/QuantumChemistryGroup/orca2cm5/releases/tag/v1.1
 
 b) on your Linux machine:
-```unzip orca2cm5-1.0.zip```
+```unzip orca2cm5-1.1.zip```
 
-c) ```cd orca2cm5-1.0```
+c) ```cd orca2cm5-1.1```
 
 d) ```chmod u=rwx *```
 
@@ -18,12 +18,22 @@ d) ```chmod u=rwx *```
 Print [P_Hirshfeld] 1
 end
 ```
-3) Run your ORCA job
+Equally, prepare your Priroda input with the following option included:
+```
+$control
+ print=+esr+charges 
+$end
+```
+3) Run your ORCA (or Priroda) job
 4) Run **get_hrs_orca.py** script on your ORCA output with the charges:
 
-```python3 /path/to/orca2cm5-1.0/get_hrs_orca.py your_ORCA_job.out```
+```python3 /path/to/orca2cm5-1.1/get_hrs_orca.py your_ORCA_job.out```
+Or:
+Run **get_hrs_priroda.py** script on your Priroda output with the charges:
 
-5) The result is the file which contains the Cartesian coordinates and the Hirshfeld charges in the last column, see your_ORCA_job.HRS:
+```python3 /path/to/orca2cm5-1.1/get_hrs_priroda.py your_Priroda_job.out```
+
+5) The result is the file which contains the Cartesian coordinates and the Hirshfeld charges in the last column, see your_ORCA_job.HRS or your_Priroda_job.HRS:
 
 ```
  C   0.688264   0.911986   4.168096   0.335927
@@ -32,9 +42,11 @@ end
 
 ```
 
-6) Run **hrs_to_m51.py** script on your_ORCA_job.HRS:
+6) Run **hrs_to_m51.py** script on your_ORCA_job.HRS or your_Priroda_job.HRS:
 
-```python3 /path/to/orca2cm5-1.0/hrs_to_m51.py your_ORCA_job.HRS```
+```python3 /path/to/orca2cm5-1.1/hrs_to_m51.py your_ORCA_job.HRS```
+or:
+```python3 /path/to/orca2cm5-1.1/hrs_to_m51.py your_Priroda_job.HRS```
 
 7) The result is the file which contains the Cartesian coordinates and the CM5 charges in the last column, see your_ORCA_job.M51:
 
@@ -44,7 +56,7 @@ end
  O     1.462743     1.841647     3.605061    -0.183283
 
 ```
-8) The resulting file your_ORCA_job.M51 can be used to calculate the solvation Gibbs free energy with our SOLV program, see more at https://github.com/QuantumChemistryGroup/solv
+8) The resulting file your_ORCA_job.M51 or your_Priroda_job.M51 can be used to calculate the solvation Gibbs free energy with our SOLV program, see more at https://github.com/QuantumChemistryGroup/solv
 
 > [!IMPORTANT]
 > **When using this code (orca2cm5) please cite the following publications:**
